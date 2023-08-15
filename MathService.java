@@ -18,4 +18,9 @@ public class MathService {
     public String multiply(@RequestParam("num1") Double num1,@RequestParam("num2")Double num2){
         return Double.toString(num1 * num2);
     }
+
+    @RequestMapping(value = "/divide", method = RequestMethod.GET)
+    public String divide(@RequestParam("num1") double num1, @RequestParam("num2") double num2){
+        return Double.toString(num1/num2);
+    }
 }

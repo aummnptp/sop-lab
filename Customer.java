@@ -6,21 +6,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class Customer {
     String ID;
     String name;
-    boolean sex;
+    String sex;
     int age;
 
-    public Customer(String ID,String n,boolean s,int a){
-    this.ID = ID;
-    this.name = n;
-    this.sex = s;
-    this.age = a;
+    public Customer(String ID,String n,String s,int a){
+        this.ID = ID;
+        this.name = n;
+        this.sex = s;
+        this.age = a;
     }
 
     public Customer(){
-        this.ID = "";
-        this.name = null;
-        this.sex =  false;
-        this.age = 0;
+        this("",null,"Male",0);
     }
     public void setID(String ID) {
         this.ID = ID;
@@ -38,16 +35,20 @@ public class Customer {
         return name;
     }
 
-    public void setSex(boolean sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public boolean getSex() {
+    public String getSex() {
         return sex;
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age >0){
+            this.age = age;
+
+        }
+       else{  this.age = 0;}
     }
 
     public int getAge() {
